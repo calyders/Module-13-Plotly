@@ -1,13 +1,14 @@
 .jumbotron {
-    background-image: url("/Images/image.jpg");
+    background-image: url("Images/image.jpg");
     background-size: 100% 100%;
     text-align: center;
-    color: white;
+    color: black;
 }
 
 .jumbotron p {
     font-size: 30px;
     font-weight: 500;
+    color: black;
 }
 
 .boxed {

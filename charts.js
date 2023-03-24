@@ -7,10 +7,7 @@ function init() {
     var sampleNames = data.names;
 
     sampleNames.forEach((sample) => {
-      selector
-        .append("option")
-        .text(sample)
-        .property("value", sample);
+      selector.append("option").text(sample).property("value", sample);
     });
 
     // Use the first sample from the list to build the initial plots
@@ -42,7 +39,7 @@ function buildMetadata(sample) {
     var PANEL = d3.select("#sample-metadata");
 
     // Use `.html("") to clear any existing metadata
-    PANEL.html("");
+    //PANEL.html("");
 
     // Use `Object.entries` to add each key and value pair to the panel
     // Hint: Inside the loop, you will need to use d3 to append new
@@ -65,7 +62,7 @@ function buildCharts(sample) {
     // Deliverable 1: 4. Create a variable that filters the samples for the object with the desired sample number.
     var resultsArray = samples.filter(obj => obj.id == sample);
     // Deliverable 3: 1. Create a variable that filters the metadata array for the object with the desired sample number.
-    var metadataArray = metadata.filter(sampleObj => sampleObj.id == sample);
+    var metadataArray = samples.filter(sampleObj => sampleObj.id == sample);
     // Deliverable 1: 5. Create a variable that holds the first sample in the array.
     var result = resultsArray[0];
     // Deliverable 3: 2. Create a variable that holds the first sample in the metadata array.
@@ -85,13 +82,13 @@ function buildCharts(sample) {
     var labels = otuLabs.slice(0,10).reverse();
 
     // Deliverable 1: 8. Create the trace for the bar chart. 
-    var barData = [
-      x, xticks,
-      y, yticks,
-      type, 'bar',
-      orientation, 'h',
-      text, labels
-    ];
+    var barData = {
+      x: xticks,
+      y: yticks,
+      type: 'bar',
+      orientation: 'h',
+      text: labels
+    };
 
     // Deliverable 1: 9. Create the layout for the bar chart. 
     var barLayout = {
